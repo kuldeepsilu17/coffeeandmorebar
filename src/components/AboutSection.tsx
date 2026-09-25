@@ -25,12 +25,12 @@ export default function AboutSection({ showExtended = false }: { showExtended?: 
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-[#FBF9F5]" id="about">
+    <section className="py-12 sm:py-16 md:py-24 bg-[#FBF9F5] overflow-hidden" id="about">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Left Column: Visual Storytelling */}
           <div className="lg:col-span-6 relative">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-[#FFFFFF] bg-[#1A130E]">
+            <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl sm:shadow-2xl border-2 sm:border-4 border-[#FFFFFF] bg-[#1A130E]">
               <div className="relative aspect-[4/3] w-full">
                 <Image
                   src="/images/barista-espresso.jpg"
@@ -43,7 +43,7 @@ export default function AboutSection({ showExtended = false }: { showExtended?: 
             </div>
 
             {/* Secondary Overlapping Card */}
-            <div className="absolute -bottom-8 -right-4 sm:-right-8 w-44 sm:w-56 rounded-2xl overflow-hidden shadow-xl border-4 border-[#FFFFFF] bg-[#1A130E] hidden sm:block">
+            <div className="absolute -bottom-6 -right-2 sm:-bottom-8 sm:-right-6 w-36 sm:w-52 rounded-2xl overflow-hidden shadow-xl border-2 sm:border-4 border-[#FFFFFF] bg-[#1A130E] hidden sm:block">
               <div className="relative aspect-square w-full">
                 <Image
                   src="/images/iced-caramel-coffee.jpg"
@@ -53,43 +53,43 @@ export default function AboutSection({ showExtended = false }: { showExtended?: 
                   className="object-cover"
                 />
               </div>
-              <div className="p-2.5 bg-[#1A130E] text-center">
-                <p className="text-[11px] font-semibold text-white">Signature Iced Coffee</p>
-                <p className="text-[10px] text-amber-300 font-medium">Guest Favorite</p>
+              <div className="p-2 sm:p-2.5 bg-[#1A130E] text-center">
+                <p className="text-[10px] sm:text-[11px] font-semibold text-white">Signature Iced Coffee</p>
+                <p className="text-[9px] sm:text-[10px] text-amber-300 font-medium">Guest Favorite</p>
               </div>
             </div>
           </div>
 
           {/* Right Column: About Content */}
-          <div className="lg:col-span-6 flex flex-col gap-6">
+          <div className="lg:col-span-6 flex flex-col gap-5 sm:gap-6">
             <div className="space-y-2">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F5EFE6] border border-[#EBE3D7] text-xs font-semibold text-[#B86B35]">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F5EFE6] border border-[#EBE3D7] text-xs font-semibold text-[#B86B35]">
                 <Heart className="w-3.5 h-3.5" />
                 <span>Our Story & Philosophy</span>
               </div>
-              <h2 className="font-heading text-3xl sm:text-4xl font-extrabold text-[#1C1510] leading-tight">
+              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#1C1510] leading-tight">
                 Crafted for Coffee Lovers, Designed for Everyday Moments.
               </h2>
             </div>
 
-            <p className="text-base text-[#635347] leading-relaxed">
+            <p className="text-sm sm:text-base text-[#635347] leading-relaxed">
               Located directly along <strong>Bulevardi Dëshmorët E Kombit</strong>, Coffee and more Bar was created to offer Prishtinë a cozy, refined haven where you can slow down and enjoy the finest pleasures: authentic specialty coffee, gourmet pastries, and fine drinks.
             </p>
 
-            <p className="text-sm sm:text-base text-[#635347] leading-relaxed">
+            <p className="text-xs sm:text-sm md:text-base text-[#635347] leading-relaxed">
               Whether you are stopping by for a brisk morning espresso, settling in with a laptop in our quiet work corner, savoring our celebrated signature <strong>Iced Coffee with Caramel</strong>, or gathering with friends over wine in the evening—we are dedicated to making every guest feel at home.
             </p>
 
             {/* Core Pillars */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-1">
               {highlights.map((item) => (
-                <div key={item.title} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-[#B86B35] shrink-0 mt-0.5" />
+                <div key={item.title} className="flex items-start gap-2.5 sm:gap-3 p-2.5 sm:p-0 rounded-xl bg-[#FFFFFF] sm:bg-transparent border sm:border-0 border-[#EBE3D7]">
+                  <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#B86B35] shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-heading font-semibold text-sm text-[#1C1510]">
+                    <h4 className="font-heading font-semibold text-xs sm:text-sm text-[#1C1510]">
                       {item.title}
                     </h4>
-                    <p className="text-xs text-[#8F7D70] leading-relaxed mt-0.5">
+                    <p className="text-[11px] sm:text-xs text-[#8F7D70] leading-relaxed mt-0.5">
                       {item.desc}
                     </p>
                   </div>
@@ -98,11 +98,11 @@ export default function AboutSection({ showExtended = false }: { showExtended?: 
             </div>
 
             {/* Action buttons */}
-            <div className="pt-4 flex flex-wrap items-center gap-4">
+            <div className="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-4">
               {!showExtended && (
                 <Link
                   href="/about"
-                  className="btn-primary text-sm px-6 py-3"
+                  className="btn-primary w-full sm:w-auto text-sm px-6 py-3 min-h-[44px]"
                 >
                   <span>Read Our Full Story</span>
                   <ArrowRight className="w-4 h-4" />
@@ -111,7 +111,7 @@ export default function AboutSection({ showExtended = false }: { showExtended?: 
 
               <Link
                 href="/menu"
-                className="btn-secondary text-sm px-6 py-3"
+                className="btn-secondary w-full sm:w-auto text-sm px-6 py-3 min-h-[44px]"
               >
                 <span>Browse Menu</span>
               </Link>
@@ -122,3 +122,4 @@ export default function AboutSection({ showExtended = false }: { showExtended?: 
     </section>
   );
 }
+

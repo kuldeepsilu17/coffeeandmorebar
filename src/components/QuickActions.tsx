@@ -53,26 +53,31 @@ export default function QuickActions() {
   ];
 
   return (
-    <section className="py-6 border-y border-[#EBE3D7] bg-[#FFFFFF]/80 backdrop-blur-xs">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
-          {actions.map((action) => {
+    <section className="py-4 sm:py-6 border-y border-[#EBE3D7] bg-[#FFFFFF]/90 backdrop-blur-xs">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-3">
+          {actions.map((action, idx) => {
             const Icon = action.icon;
+            const isLastOdd = idx === 4;
             const content = (
               <div
-                className={`p-3.5 sm:p-4 rounded-2xl flex items-center gap-3 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md ${action.color}`}
+                className={`p-3 sm:p-4 rounded-2xl flex items-center gap-2.5 sm:gap-3 min-h-[58px] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md active:scale-98 ${action.color}`}
               >
-                <div className="p-2.5 rounded-xl bg-black/5 dark:bg-white/10 shrink-0">
-                  <Icon className={`w-5 h-5 ${action.iconColor}`} />
+                <div className="p-2 sm:p-2.5 rounded-xl bg-black/5 dark:bg-white/10 shrink-0">
+                  <Icon className={`w-4 h-4 sm:w-5 sm:h-5 ${action.iconColor}`} />
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="font-heading font-semibold text-xs sm:text-sm truncate">
                     {action.title}
                   </p>
-                  <p className="text-[11px] opacity-75 truncate">{action.subtitle}</p>
+                  <p className="text-[10px] sm:text-[11px] opacity-75 truncate">{action.subtitle}</p>
                 </div>
               </div>
             );
+
+            const containerClasses = `block focus:outline-none focus:ring-2 focus:ring-[#B86B35] rounded-2xl ${
+              isLastOdd ? 'col-span-2 sm:col-span-1' : ''
+            }`;
 
             if (action.isExternal) {
               return (
@@ -81,7 +86,7 @@ export default function QuickActions() {
                   href={action.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block focus:outline-none focus:ring-2 focus:ring-[#B86B35] rounded-2xl"
+                  className={containerClasses}
                 >
                   {content}
                 </a>
@@ -92,7 +97,7 @@ export default function QuickActions() {
               <Link
                 key={action.title}
                 href={action.href}
-                className="block focus:outline-none focus:ring-2 focus:ring-[#B86B35] rounded-2xl"
+                className={containerClasses}
               >
                 {content}
               </Link>
@@ -103,3 +108,4 @@ export default function QuickActions() {
     </section>
   );
 }
+
